@@ -1,7 +1,7 @@
 {
-  "name": "hello-sqlite",
+  "name": "favorite-superhero",
   "version": "0.1.1",
-  "description": "A Node app with SQLite database, instantly up and running.",
+  "description": "A simple survey to collect responses to the question: \"Who is your favourite superhero\"",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -16,15 +16,16 @@
     "@fastify/formbody": "^7.4.0"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-sqlite"
+    "url": "https://github.com/pwcberry/favorite-superhero"
   },
   "license": "MIT",
   "keywords": [
     "node",
     "glitch",
-    "sqlite"
+    "sqlite",
+    "superhero"
   ]
 }
