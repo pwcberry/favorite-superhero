@@ -6,7 +6,8 @@
     <meta name="robots" content="nofollow">
     <title>Who is your favorite superhero?</title>
     <link rel="preconnect" href="https://assets.reastatic.net">
-    <link rel="preload" href="https://assets.reastatic.net/common/pangea-variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://assets.reastatic.net/common/pangea-variable.woff2" as="font" type="font/woff2"
+          crossorigin="anonymous">
     <style>
         :root {
             --ck-textPrimary: #3D3B40;
@@ -35,7 +36,7 @@
             --ck-backgroundSuccess: #DCFCE7;
             --ck-backgroundWarning: #FFEEDB;
             --ck-backgroundError: #FFE8EB;
-            --ck-backgroundOverlayStatic: rgba(36,34,38,0.8);
+            --ck-backgroundOverlayStatic: rgba(36, 34, 38, 0.8);
             --ck-borderBrandStatic: #e4002b;
             --ck-borderPrimary: #959199;
             --ck-borderSecondary: #E5E3E8;
@@ -92,11 +93,12 @@
             --ck-textYellow: #995C00;
             --ck-textTeal: #0C747D;
         }
+
         :root {
             --ck-radius-small: 0.25rem;
             --ck-radius-medium: 0.5rem;
             --ck-radius-large: 0.75rem;
-            --ck-shadow: 0 0.0625rem 0.25rem 0 rgba(0,0,0,0.16);
+            --ck-shadow: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.16);
             --ck-spacing-twoExtraSmall: 0.25rem;
             --ck-spacing-extraSmall: 0.5rem;
             --ck-spacing-small: 0.75rem;
@@ -125,24 +127,29 @@
     <link href="styles.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<h1>Who is your favourite superhero?</h1>
-<form name="superhero_form" method="post" action="/" enctype="application/x-www-form-urlencoded">
-    <div class="form-body">
-        {{#each heroes}}
-            <article class="superhero">
-                <label>
-                    <span>{{name}}</span>
-                    <img src="images/{{image_file}}" alt="{{name}}">
-                    <input type="radio" name="superhero" value="{{id}}">
-                </label>
-            </article>
-        {{/each}}
-    </div>
-    <div class="form-footer">
-        <button class="button-primary" type="submit" disabled>Submit</button>
-        <button class="button-outline" type="reset">Clear</button>
-    </div>
-</form>
+<main>
+    <h1>Who is your favourite superhero?</h1>
+    <h2>Select one of these:</h2>
+    <form name="superhero_form" method="post" action="/" enctype="application/x-www-form-urlencoded">
+        <div class="form-body">
+            {{#each heroes}}
+                <article class="superhero">
+                    <label>
+                        <span class="superhero-image">
+                            <img src="images/{{image_file}}" alt="{{name}}">
+                        </span>
+                        <span class="superhero-name">{{name}}</span>
+                        <input type="radio" name="superhero" value="{{id}}">
+                    </label>
+                </article>
+            {{/each}}
+        </div>
+        <div class="form-footer">
+            <button class="button-outline" type="reset">Clear</button>
+            <button class="button-primary" type="submit" disabled>Submit</button>
+        </div>
+    </form>
+</main>
 <script type="module">
     const form = document.forms["superhero_form"];
     const submitBtn = document.querySelector("button[type='submit']");
