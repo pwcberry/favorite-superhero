@@ -17,14 +17,12 @@ const db = await open({
 
 try {
     if (!databaseExists) {
-        await db.run(
-            `
-          CREATE TABLE Superhero (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, image_file TEXT NOT NULL);
-          CREATE TABLE Response (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, superhero_id INTEGER NOT NULL,
-            CONSTRAINT superhero_fk FOREIGN KEY (superhero_id) REFERENCES Superhero (id));   
-          CREATE VIEW Results AS SELECT name, image_file, COUNT(r.id) AS votes 
-            FROM Superhero s LEFT JOIN Response r ON s.id = superhero_id GROUP BY name, image_file;`
+        await db.run("CREATE TABLE Superhero (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, image_file TEXT NOT NULL);")
+        await db.run(            `CREATE TABLE Response (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, superhero_id INTEGER NOT NULL,
+            CONSTRAINT superhero_fk FOREIGN KEY (superhero_id) REFERENCES Superhero (id));`
         );
+        await db.run(`CREATE VIEW Results AS SELECT name, image_file, COUNT(r.id) AS votes 
+            FROM Superhero s LEFT JOIN Response r ON s.id = superhero_id GROUP BY name, image_file;`)
 
         await db.run(
             `
@@ -72,9 +70,9 @@ async function getSuperheroes() {
     }
 }
 
-async function loadVote(userId, superheroId) {
+async function addVote(userId, superheroId) {
     try {
-        await db.run(`INSERT INTO Response (user_id, superhero_id) VALUES ('${userId}', '${superheroId}');`);
+        await db.run(`INSERT INTO Response (user_id, superhero_id) VALUES (?, ?);`, [userId, superheroId]);
     } catch (err) {
         console.error(err);
     }
@@ -91,5 +89,5 @@ async function getResults() {
 export {
     getSuperheroes,
     getResults,
-    loadVote
+    addVote
 };
