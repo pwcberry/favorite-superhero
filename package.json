@@ -1,8 +1,9 @@
 {
   "name": "favorite-superhero",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "A simple survey to collect responses to the question: \"Who is your favourite superhero\"",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js"
   },
