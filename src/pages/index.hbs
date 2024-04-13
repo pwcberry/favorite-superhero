@@ -1,130 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="nofollow">
+    {{> head}}
     <title>Who is your favorite superhero?</title>
-    <link rel="preconnect" href="https://assets.reastatic.net">
-    <link rel="preload" href="https://assets.reastatic.net/common/pangea-variable.woff2" as="font" type="font/woff2"
-          crossorigin="anonymous">
-    <style>
-        :root {
-            --ck-textPrimary: #3D3B40;
-            --ck-textSecondary: #726E75;
-            --ck-textInverted: #ffffff;
-            --ck-textInvertedStatic: #ffffff;
-            --ck-textInformation: #00639E;
-            --ck-textSuccess: #137044;
-            --ck-textWarning: #A8420D;
-            --ck-textSuccessInverted: #93D7AD;
-            --ck-textWarningInverted: #FFA857;
-            --ck-textError: #A81E35;
-            --ck-textBrand: #e4002b;
-            --ck-backgroundBrandStatic: #e4002b;
-            --ck-backgroundPrimary: #ffffff;
-            --ck-backgroundPrimaryBase: #ffffff;
-            --ck-backgroundPrimaryLow: #ffffff;
-            --ck-backgroundPrimaryHigh: #ffffff;
-            --ck-backgroundPrimaryInverted: #3D3B40;
-            --ck-backgroundPrimaryInvertedStatic: #3D3B40;
-            --ck-backgroundSecondaryBase: #F6F5F7;
-            --ck-backgroundSecondaryLow: #F6F5F7;
-            --ck-backgroundSecondaryInvertedStatic: #242326;
-            --ck-backgroundSecondary: #E5E3E8;
-            --ck-backgroundInformation: #DBF7FF;
-            --ck-backgroundSuccess: #DCFCE7;
-            --ck-backgroundWarning: #FFEEDB;
-            --ck-backgroundError: #FFE8EB;
-            --ck-backgroundOverlayStatic: rgba(36, 34, 38, 0.8);
-            --ck-borderBrandStatic: #e4002b;
-            --ck-borderPrimary: #959199;
-            --ck-borderSecondary: #E5E3E8;
-            --ck-borderInverted: #ffffff;
-            --ck-borderInvertedStatic: #959199;
-            --ck-borderErrored: #A8420D;
-            --ck-borderSelected: #3D3B40;
-            --ck-linkPrimary: #00639E;
-            --ck-linkSecondary: #726E75;
-            --ck-linkHoveredPrimary: #005180;
-            --ck-linkHoveredSecondary: #565359;
-            --ck-linkPressedPrimary: #10384F;
-            --ck-linkPressedSecondary: #3D3B40;
-            --ck-backgroundHoveredBrandStatic: #A81E35;
-            --ck-backgroundHoveredPrimary: #F6F5F7;
-            --ck-backgroundHoveredPrimaryInverted: #242326;
-            --ck-backgroundHoveredPrimaryInvertedStatic: #242326;
-            --ck-backgroundHoveredSecondary: #BEBAC2;
-            --ck-backgroundPressedBrandStatic: #80192B;
-            --ck-backgroundPressedPrimary: #E5E3E8;
-            --ck-backgroundPressedPrimaryInverted: #242326;
-            --ck-backgroundPressedPrimaryInvertedStatic: #1B1A1C;
-            --ck-backgroundPressedSecondary: #959199;
-            --ck-backgroundFocusedPrimary: #F6F5F7;
-            --ck-backgroundSelected: #3D3B40;
-            --ck-borderHovered: #3D3B40;
-            --ck-borderHoveredInverted: #F6F5F7;
-            --ck-borderPressed: #3D3B40;
-            --ck-borderPressedInverted: #3D3B40;
-            --ck-borderFocused: #3D3B40;
-            --ck-borderFocusedInvertedStatic: #F6F5F7;
-            --ck-textDisabled: #BEBAC2;
-            --ck-backgroundDisabled: #F6F5F7;
-            --ck-borderDisabled: #E5E3E8;
-            --ck-graphicOrange: #ED711F;
-            --ck-graphicYellow: #FCCA36;
-            --ck-graphicTeal: #2BC5CA;
-            --ck-graphicBlue: #0078BD;
-            --ck-graphicPurple: #8154AB;
-            --ck-graphicPink: #F2636F;
-            --ck-graphicGreen: #2D8659;
-            --ck-backgroundBlue: #DBF7FF;
-            --ck-backgroundPink: #FFE8EB;
-            --ck-backgroundGreen: #DCFCE7;
-            --ck-backgroundPurple: #F9EBFF;
-            --ck-backgroundOrange: #FFEEDB;
-            --ck-backgroundYellow: #FFF4D4;
-            --ck-backgroundTeal: #DDFCFA;
-            --ck-textBlue: #00639E;
-            --ck-textPink: #A81E35;
-            --ck-textGreen: #137044;
-            --ck-textPurple: #66408D;
-            --ck-textOrange: #A8420D;
-            --ck-textYellow: #995C00;
-            --ck-textTeal: #0C747D;
-        }
-
-        :root {
-            --ck-radius-small: 0.25rem;
-            --ck-radius-medium: 0.5rem;
-            --ck-radius-large: 0.75rem;
-            --ck-shadow: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.16);
-            --ck-spacing-twoExtraSmall: 0.25rem;
-            --ck-spacing-extraSmall: 0.5rem;
-            --ck-spacing-small: 0.75rem;
-            --ck-spacing-medium: 1rem;
-            --ck-spacing-large: 1.5rem;
-            --ck-spacing-extraLarge: 2rem;
-            --ck-spacing-twoExtraLarge: 2.5rem;
-            --ck-spacing-threeExtraLarge: 3rem;
-        }
-    </style>
-    <style>
-        @font-face {
-            font-family: 'Pangea';
-            font-display: swap;
-            src: url('https://assets.reastatic.net/common/pangea-variable.woff2') format('woff2-variations'), url('https://assets.reastatic.net/common/pangea-variable.woff') format('woff-variations');
-            font-weight: 300 700;
-        }
-
-        body {
-            font-family: 'Pangea', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: 400;
-            font-variation-settings: "XTDR" 50, "APRT" 100, "SPAC" 40;
-            color: var(--ck-textPrimary);
-        }
-    </style>
-    <link href="styles.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <main>
@@ -153,6 +31,7 @@
 <script type="module">
     const form = document.forms["superhero_form"];
     const submitBtn = document.querySelector("button[type='submit']");
+
     form.addEventListener("change", (event) => {
         if (event.target.name === "superhero" && event.target.checked) {
             submitBtn.disabled = false;

@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {{> head}}
     <title>Superhero results</title>
-    <link href="styles.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+<main>
 <h1>Results</h1>
+    <div class="results-grid">
 {{#each results}}
     <article class="superhero">
-        <span>{{name}}</span>
+        <span class="superhero-image">
         <img src="images/{{image_file}}" alt="{{name}}"/>
-        <span>{{votes}}</span>
+        </span>
+        <span class="superhero-name">{{name}}</span>
     </article>
+    <aside class="votes">
+        <p>{{votes}}</p>
+    </aside>
 {{/each}}
+    </div>
+</main>
 </body>
 </html>

@@ -108,7 +108,7 @@ button {
     color: var(--ck-textInvertedStatic);
 
     &:hover {
-        border-color:var(--ck-backgroundHoveredBrandStatic);
+        border-color: var(--ck-backgroundHoveredBrandStatic);
         background-color: var(--ck-backgroundHoveredBrandStatic);
     }
 }
@@ -162,7 +162,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: var(--ck-spacing-large) var(--ck-spacing-medium);
-    background-color: rgba(255,255,255,0.67);
+    background-color: rgba(255, 255, 255, 0.67);
     border-radius: var(--ck-radius-medium);
 
     & button {
@@ -207,6 +207,33 @@ main {
     margin-top: var(--ck-spacing-twoExtraSmall);
 }
 
+.results-grid {
+    display: grid;
+    margin: 0 auto;
+    max-width: calc(200px * 2 + var(--ck-spacing-medium));
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--ck-spacing-medium);
+    row-gap: var(--ck-spacing-large);
+
+    & .superhero {
+        flex-flow: column nowrap;
+
+        + .votes {
+            padding: var(--ck-spacing-extraSmall) 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            & p {
+                font-weight: 500;
+                font-size: 3rem;
+                text-align: center;
+                margin-top: -20px;
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 768px) {
     main {
         max-width: calc(71.375rem);
@@ -218,5 +245,10 @@ main {
 
     .form-footer button {
         width: 25%;
+    }
+
+    .superhero:hover {
+        border-color: var(--ck-graphicOrange);
+        background-color: var(--ck-backgroundWarning);
     }
 }

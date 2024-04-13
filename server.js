@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import pathLib from "node:path";
 import Fastify from "fastify";
 import viewEngine from "@fastify/view";
@@ -7,6 +8,7 @@ import handlebars from "handlebars";
 import { getDirname } from "./src/utils.js";
 import { getHandler as getIndexHandler, postHandler as postIndexHandler } from "./src/controllers/index.js";
 import { getHandler as getResultsHandler } from "./src/controllers/results.js";
+import * as path from "node:path";
 
 const fastify = Fastify({
     logger: true
@@ -17,6 +19,9 @@ fastify.register(staticFileEngine, {
     root: pathLib.join(getDirname(import.meta.url), "public"),
     prefix: "/",
 });
+
+// Register Handlebars partials
+handlebars.registerPartial("head", fs.readFileSync("src/pages/head.hbs", "utf8"));
 
 // Formbody lets us parse incoming forms
 fastify.register(formbodyEngine);
