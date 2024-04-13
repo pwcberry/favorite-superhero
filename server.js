@@ -1,11 +1,12 @@
 import pathLib from "node:path";
-import Fastify from 'fastify';
+import Fastify from "fastify";
 import viewEngine from "@fastify/view";
 import staticFileEngine from "@fastify/static";
 import formbodyEngine from "@fastify/formbody";
-import handlebars from 'handlebars';
+import handlebars from "handlebars";
 import { getDirname } from "./src/utils.js";
 import { getHandler as getIndexHandler, postHandler as postIndexHandler } from "./src/controllers/index.js";
+import { getHandler as getResultsHandler } from "./src/controllers/results.js";
 
 const fastify = Fastify({
     logger: true
@@ -28,8 +29,9 @@ fastify.register(viewEngine, {
 });
 
 // Declare the home route
-fastify.get('/',getIndexHandler);
+fastify.get("/",getIndexHandler);
 fastify.post("/", postIndexHandler);
+fastify.get("/results", getResultsHandler);
 
 // Run the server!
 try {

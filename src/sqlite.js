@@ -27,30 +27,30 @@ try {
         await db.run(
             `
               INSERT INTO Superhero (name, image_file) VALUES
-                ('Batman', 'batman.jpg'),
-                ('Black Panther', 'blackpanther.jpg'),
-                ('Black Widow', 'blackwidow.jpg'),
-                ('Bucky Barnes', 'buckybarnes.jpg'),
-                ('Captain America', 'captainamerica.jpg'),
-                ('Captain Marvel', 'captainmarvel.jpg'),
-                ('Deadpool', 'deadpool.jpg'),
-                ('Doctor Strange', 'doctorstrange.jpg'),
-                ('Groot', 'groot.jpg'),
-                ('Hawkeye', 'hawkeye.jpg'),
-                ('Hulk', 'hulk.jpg'),
-                ('Iron Man', 'ironman.jpg'),
-                ('Peter Quill', 'starlord.jpg'),
-                ('Scarlet Witch', 'scarletwitch.jpg'),
-                ('Shang Chi', 'shangchi.jpg'),
-                ('She Hulk', 'shehulk.jpg'),
-                ('Spiderman', 'spiderman.jpg'),
-                ('Storm', 'storm.jpg'),
-                ('Superman', 'superman.jpg'),
-                ('The Doctor', 'thedoctor.jpg'),
-                ('Thor', 'thor.jpg'),
-                ('Wasp', 'wasp.jpg'),
-                ('Wolverine', 'wolverine.jpg'),
-                ('Wonder Woman', 'wonderwoman.jpg');
+                ("Batman", "batman.jpg"),
+                ("Black Panther", "blackpanther.jpg"),
+                ("Black Widow", "blackwidow.jpg"),
+                ("Bucky Barnes", "buckybarnes.jpg"),
+                ("Captain America", "captainamerica.jpg"),
+                ("Captain Marvel", "captainmarvel.jpg"),
+                ("Deadpool", "deadpool.jpg"),
+                ("Doctor Strange", "doctorstrange.jpg"),
+                ("Groot", "groot.jpg"),
+                ("Hawkeye", "hawkeye.jpg"),
+                ("Hulk", "hulk.jpg"),
+                ("Iron Man", "ironman.jpg"),
+                ("Peter Quill", "starlord.jpg"),
+                ("Scarlet Witch", "scarletwitch.jpg"),
+                ("Shang Chi", "shangchi.jpg"),
+                ("She Hulk", "shehulk.jpg"),
+                ("Spiderman", "spiderman.jpg"),
+                ("Storm", "storm.jpg"),
+                ("Superman", "superman.jpg"),
+                ("The Doctor", "thedoctor.jpg"),
+                ("Thor", "thor.jpg"),
+                ("Wasp", "wasp.jpg"),
+                ("Wolverine", "wolverine.jpg"),
+                ("Wonder Woman", "wonderwoman.jpg");
               `
         );
     } else {
@@ -80,7 +80,7 @@ async function addVote(userId, superheroId) {
 
 async function getResults() {
     try {
-        return db.all("SELECT * FROM Results ORDER BY votes DESC;");
+        return db.all("SELECT * FROM Results WHERE votes > 0 ORDER BY votes DESC LIMIT 3;");
     } catch (error) {
         console.error(error);
     }
