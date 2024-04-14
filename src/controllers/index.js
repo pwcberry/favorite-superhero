@@ -2,6 +2,9 @@ import { formatInTimeZone } from 'date-fns-tz';
 import {getSuperhero, getSuperheroes, addVote, getRecentVote} from "../sqlite.js";
 import {uuid} from "../utils.js";
 
+const DAY_IN_SECONDS = 24 * 60 * 60;
+const MINUTE = 60;
+
 async function getHandler(request, reply) {
     const {super_uid, vote_time} = request.cookies;
 
@@ -14,7 +17,7 @@ async function getHandler(request, reply) {
 
     const heroes = await getSuperheroes();
     return reply
-        .cookie("super_uid",userId)
+        .cookie("super_uid",userId, { maxAge: DAY_IN_SECONDS * 7 })
         .view("/src/pages/index.hbs", {heroes});
 }
 
@@ -37,8 +40,8 @@ async function postHandler(request, reply) {
     const voteTime = formatInTimeZone(new Date(), "Australia/Melbourne", "h:mma");
 
     return reply
-        .cookie("super_uid",super_uid)
-        .cookie("vote_time", voteTime)
+        .cookie("super_uid",super_uid, { maxAge: DAY_IN_SECONDS * 7 })
+        .cookie("vote_time", voteTime, { maxAge: 30 * MINUTE })
         .view("/src/pages/thanks.hbs", {hero});
 }
 
