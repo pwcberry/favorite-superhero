@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <title>Who is your favorite superhero?</title>
+</head>
+<body>
+<main>
+    <h1>You've voted for your favourite superhero:</h1>
+    <div class="superhero-selection">
+        {{#with hero}}
+            <article class="superhero">
+            <span class="superhero-image">
+            <img src="images/{{image_file}}" alt="{{name}}"/>
+            </span>
+                <span class="superhero-name">{{name}}</span>
+            </article>
+        {{/with}}
+    </div>
+    {{#if time }}<p style="text-align: center">You voted at: {{time}}</p>{{/if}}
+    <p style="text-align: center;margin-top:1rem">Results for the tribe will be shared shortly.</p>
+</main>
+</body>
+</html>

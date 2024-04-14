@@ -18,7 +18,7 @@ const db = await open({
 try {
     if (!databaseExists) {
         await db.run("CREATE TABLE Superhero (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, image_file TEXT NOT NULL);")
-        await db.run(            `CREATE TABLE Response (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, superhero_id INTEGER NOT NULL,
+        await db.run(`CREATE TABLE Response (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, superhero_id INTEGER NOT NULL,
             CONSTRAINT superhero_fk FOREIGN KEY (superhero_id) REFERENCES Superhero (id));`
         );
         await db.run(`CREATE VIEW Results AS SELECT name, image_file, COUNT(r.id) AS votes 
@@ -73,8 +73,8 @@ async function getSuperheroes() {
 async function addVote(userId, superheroId) {
     try {
         await db.run(`INSERT INTO Response (user_id, superhero_id) VALUES (?, ?);`, [userId, superheroId]);
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
+        console.error(error);
     }
 }
 
@@ -86,8 +86,27 @@ async function getResults() {
     }
 }
 
+async function getSuperhero(id) {
+    try {
+        return db.get("SELECT id, name, image_file FROM Superhero WHERE id = ?", [id]);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getRecentVote(userId) {
+    try {
+        return db.get("SELECT id, name, image_file FROM Superhero WHERE id IN (SELECT superhero_id FROM Response WHERE user_id = ? ORDER BY id DESC LIMIT 1);", [userId]);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
 export {
-    getSuperheroes,
+    addVote,
     getResults,
-    addVote
+    getRecentVote,
+    getSuperheroes,
+    getSuperhero,
 };
