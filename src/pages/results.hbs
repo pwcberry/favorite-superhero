@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <title>Superhero results</title>
+</head>
+<body>
+<main>
+<h1>Results</h1>
+    <div class="results-grid">
+{{#each results}}
+    <article class="superhero">
+        <span class="superhero-image">
+        <img src="images/{{image_file}}" alt="{{name}}"/>
+        </span>
+        <span class="superhero-name">{{name}}</span>
+    </article>
+    <aside class="votes">
+        <p>{{votes}}</p>
+    </aside>
+{{/each}}
+    </div>
+</main>
+</body>
+</html>

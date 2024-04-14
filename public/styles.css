@@ -1,0 +1,254 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+img {
+    vertical-align: middle;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+input, textarea, select, button {
+    font: inherit;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.125rem;
+    font-family: Pangea, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 2.75rem;
+    font-weight: 600;
+    font-variation-settings: "XTDR" 0, "APRT" 0, "SPAC" 0;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-family: Pangea, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 2.25rem;
+    font-weight: 600;
+    font-variation-settings: "XTDR" 0, "APRT" 0, "SPAC" 0;
+    margin: 0;
+}
+
+button {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-family: Pangea, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-variation-settings: "XTDR" 0, "APRT" 0, "SPAC" 0;
+    font-weight: 500;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    outline: none;
+    width: auto;
+    border-radius: var(--ck-radius-medium);
+    border: 0.0625rem solid;
+    padding: var(--ck-spacing-small) var(--ck-spacing-large);
+    cursor: pointer;
+    text-decoration: none;
+    min-height: 3rem;
+    min-width: 3rem;
+    transition: background-color 200ms ease-in 0s;
+
+    &[disabled] {
+        border-color: var(--ck-borderDisabled);
+        background-color: var(--ck-backgroundDisabled);
+        color: var(--ck-textDisabled);
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: var(--ck-backgroundDisabled);
+            border-color: var(--ck-borderDisabled);
+            color: var(--ck-textDisabled);
+        }
+    }
+}
+
+.button-primary {
+    border-color: var(--ck-backgroundBrandStatic);
+    background-color: var(--ck-backgroundBrandStatic);
+    color: var(--ck-textInvertedStatic);
+
+    &:hover {
+        border-color: var(--ck-backgroundHoveredBrandStatic);
+        background-color: var(--ck-backgroundHoveredBrandStatic);
+    }
+}
+
+.button-outline {
+    border-color: var(--ck-borderPrimary);
+    background-color: transparent;
+    color: var(--ck-textPrimary);
+
+    &:hover {
+        background-color: var(--ck-backgroundHoveredPrimary);
+        border-color: var(--ck-borderHovered);
+    }
+}
+
+body {
+    background: repeating-conic-gradient(from 4deg at 33% 50%, var(--ck-backgroundSecondaryBase) 0 15deg, var(--ck-backgroundSecondary) 0 30deg) fixed;
+}
+
+main {
+    padding: var(--ck-spacing-large);
+    margin: 0 auto;
+
+    & h1 {
+        text-align: center;
+        margin-bottom: var(--ck-spacing-large);
+    }
+
+    & h2 {
+        text-align: center;
+        margin-bottom: var(--ck-spacing-medium);
+    }
+}
+
+.form-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--ck-spacing-extraSmall);
+
+    input[type=radio] {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+}
+
+.form-footer {
+    margin: var(--ck-spacing-medium) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--ck-spacing-large) var(--ck-spacing-medium);
+    background-color: rgba(255, 255, 255, 0.67);
+    border-radius: var(--ck-radius-medium);
+
+    & button {
+        width: 33%;
+    }
+}
+
+.superhero {
+    display: flex;
+    justify-content: center;
+    padding: var(--ck-spacing-extraSmall) 0;
+    position: relative;
+    border: 1px solid transparent;
+
+    & label {
+        cursor: pointer;
+    }
+
+    &:has(input[type=radio]:checked) {
+        border: 1px solid var(--ck-graphicGreen);
+        background-color: var(--ck-backgroundSuccess);
+    }
+}
+
+.superhero-image {
+    display: block;
+    aspect-ratio: 2/3;
+    max-height: 300px;
+    max-width: 200px;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.superhero-name {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: var(--ck-spacing-twoExtraSmall);
+}
+
+.results-grid {
+    display: grid;
+    margin: 0 auto;
+    max-width: calc(200px * 2 + var(--ck-spacing-medium));
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--ck-spacing-medium);
+    row-gap: var(--ck-spacing-large);
+
+    & .superhero {
+        flex-flow: column nowrap;
+
+        + .votes {
+            padding: var(--ck-spacing-extraSmall) 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            & p {
+                font-weight: 500;
+                font-size: 3rem;
+                text-align: center;
+                margin-top: -20px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        max-width: calc(71.375rem);
+    }
+
+    .form-body {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .form-footer button {
+        width: 25%;
+    }
+
+    .superhero:hover {
+        border-color: var(--ck-graphicOrange);
+        background-color: var(--ck-backgroundWarning);
+    }
+}
