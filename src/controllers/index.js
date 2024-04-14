@@ -1,3 +1,4 @@
+import { formatInTimeZone } from 'date-fns-tz';
 import {getSuperhero, getSuperheroes, addVote, getRecentVote} from "../sqlite.js";
 import {uuid} from "../utils.js";
 
@@ -33,15 +34,7 @@ async function postHandler(request, reply) {
         }
     }
 
-    const now = new Date();
-    let hours = now.getHours();
-    const pm = hours >= 12;
-    hours = hours > 12 ? (hours - 12) : hours;
-
-    let minutes = now.getMinutes();
-    minutes = `${minutes < 10 ? "0" :""}${minutes}`;
-
-    const voteTime = `${hours}:${minutes}${pm ? "pm":"am"}`;
+    const voteTime = formatInTimeZone(new Date(), "Australia/Melbourne", "h:mma");
 
     return reply
         .cookie("super_uid",super_uid)
