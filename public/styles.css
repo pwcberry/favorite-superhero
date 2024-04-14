@@ -204,7 +204,19 @@ main {
     display: inline-block;
     width: 100%;
     text-align: center;
-    margin-top: var(--ck-spacing-twoExtraSmall);
+    background-color: var(--ck-backgroundPrimaryBase);
+    padding: var(--ck-spacing-twoExtraSmall);
+}
+
+.superhero-selection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: var(--ck-spacing-medium);
+
+    & .superhero {
+        flex-flow: column nowrap;
+    }
 }
 
 .results-grid {
@@ -241,14 +253,14 @@ main {
 
     .form-body {
         grid-template-columns: repeat(4, 1fr);
+
+        & .superhero:hover:not(:has(input[type=radio]:checked)) {
+            border-color: var(--ck-graphicOrange);
+            background-color: var(--ck-backgroundOrange);
+        }
     }
 
     .form-footer button {
         width: 25%;
-    }
-
-    .superhero:hover {
-        border-color: var(--ck-graphicOrange);
-        background-color: var(--ck-backgroundWarning);
     }
 }

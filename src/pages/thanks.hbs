@@ -1,1 +1,24 @@
-<h1>THANKS</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <title>Who is your favorite superhero?</title>
+</head>
+<body>
+<main>
+    <h1>Who is your favourite superhero?</h1>
+    <div class="superhero-selection">
+        {{#with hero}}
+        <article class="superhero">
+            <span class="superhero-image">
+            <img src="images/{{image_file}}" alt="{{name}}"/>
+            </span>
+            <span class="superhero-name">{{name}}</span>
+        </article>
+        {{/with}}
+    </div>
+    <h2>Thanks for voting!</h2>
+    <p style="text-align: center">Results for the tribe will be shared shortly.</p>
+</main>
+</body>
+</html>
