@@ -34,3 +34,7 @@ PORT=8000
 The SQLite database file is created on the first request to the website and is located at `.data/superheroes.db`.
 
 Highly recommend that you install [SQLite](https://www.sqlite.org/index.html) to inspect the database file created by the app.
+
+## Glitch History
+
+The code for this app is based on the Glitch project [Hello SQLite](https://glitch.com/edit/#!/hello-sqlite).
