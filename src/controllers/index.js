@@ -1,3 +1,6 @@
+/**
+ * Controller functions for the index route
+ */
 import { formatInTimeZone } from 'date-fns-tz';
 import {getSuperhero, getSuperheroes, addVote, getRecentVote} from "../sqlite.js";
 import {uuid} from "../utils.js";
