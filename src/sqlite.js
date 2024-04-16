@@ -30,7 +30,6 @@ try {
                 ("Batman", "batman.jpg"),
                 ("Black Panther", "blackpanther.jpg"),
                 ("Black Widow", "blackwidow.jpg"),
-                ("Bucky Barnes", "buckybarnes.jpg"),
                 ("Captain America", "captainamerica.jpg"),
                 ("Captain Marvel", "captainmarvel.jpg"),
                 ("Deadpool", "deadpool.jpg"),
@@ -39,11 +38,12 @@ try {
                 ("Hawkeye", "hawkeye.jpg"),
                 ("Hulk", "hulk.jpg"),
                 ("Iron Man", "ironman.jpg"),
+                ("Jessica Jones", "jessicajones.jpg"),
                 ("Peter Quill", "starlord.jpg"),
                 ("Scarlet Witch", "scarletwitch.jpg"),
                 ("Shang Chi", "shangchi.jpg"),
                 ("She Hulk", "shehulk.jpg"),
-                ("Spiderman", "spiderman.jpg"),
+                ("Spider-man", "spiderman.jpg"),
                 ("Storm", "storm.jpg"),
                 ("Superman", "superman.jpg"),
                 ("The Doctor", "thedoctor.jpg"),
@@ -80,7 +80,7 @@ async function addVote(userId, superheroId) {
 
 async function getResults() {
     try {
-        return db.all("SELECT * FROM Results WHERE votes > 0 ORDER BY votes DESC LIMIT 3;");
+        return db.all("SELECT * FROM Results WHERE votes > 0 ORDER BY votes DESC;");
     } catch (error) {
         console.error(error);
     }
