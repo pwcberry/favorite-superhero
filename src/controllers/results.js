@@ -1,3 +1,6 @@
+/**
+ * Controller functions to display the results page
+ */
 import {getResults} from "../sqlite.js";
 
 async function getHandler(request, reply){

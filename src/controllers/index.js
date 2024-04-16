@@ -1,3 +1,6 @@
+/**
+ * Controller functions for the index route
+ */
 import { formatInTimeZone } from 'date-fns-tz';
 import {getSuperhero, getSuperheroes, addVote, getRecentVote} from "../sqlite.js";
 import {uuid} from "../utils.js";
@@ -37,11 +40,12 @@ async function postHandler(request, reply) {
         }
     }
 
+    // When running on Glitch, the timezone is in the USA
     const voteTime = formatInTimeZone(new Date(), "Australia/Melbourne", "h:mma");
 
     return reply
         .cookie("super_uid",super_uid, { maxAge: DAY_IN_SECONDS * 7 })
-        .cookie("vote_time", voteTime, { maxAge: 30 * MINUTE })
+        .cookie("vote_time", voteTime, { maxAge: 2 * MINUTE })
         .view("/src/pages/thanks.hbs", {hero});
 }
 
