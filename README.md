@@ -10,7 +10,7 @@ This website requires v16 of Node.js so that it is compatible with the container
 
 To install v16 of Node, download and install [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating).
 
-Once you have cloned this repo, in the repo's directory follow these steps:
+Clone the Favorite Superhero repo, then in the repo's directory follow these steps:
 
 ```shell
 # install Node
