@@ -10,7 +10,7 @@ This website requires v16 of Node.js so that it is compatible with the container
 
 To install v16 of Node, download and install [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating).
 
-Clone the Favorite Superhero repo, then in the repo's directory follow these steps:
+Once you have cloned this repo, in the repo's directory follow these steps:
 
 ```shell
 # install Node
@@ -34,7 +34,3 @@ PORT=8000
 The SQLite database file is created on the first request to the website and is located at `.data/superheroes.db`.
 
 Highly recommend that you install [SQLite](https://www.sqlite.org/index.html) to inspect the database file created by the app.
-
-## Glitch History
-
-The code for this app is based on the Glitch project [Hello SQLite](https://glitch.com/edit/#!/hello-sqlite).
